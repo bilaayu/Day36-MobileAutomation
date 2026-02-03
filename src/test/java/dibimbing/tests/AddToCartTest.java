@@ -23,9 +23,9 @@ public class AddToCartTest extends BaseTest {
         loginPage.clickLoginButton();
 
         // Step 2: Tambah product ke cart
-       // productPage.clickAddToCart();
+        productPage.clickChooseProduct();
 
-        // Step 3: Verifikasi product sudah masuk cart
-       // Assert.assertTrue(productPage.isCartBadgeDisplayed(), "Product was not added to cart");
+        productPage.clickCartButton();
+
     }
 }
