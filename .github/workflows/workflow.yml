@@ -7,11 +7,11 @@ on:
 
 env:
   JAVA_VERSION: '17'
-  GRADLE_OPTS: -Dorg.gradle.daemon=false - Dorg.gradle.workers.max=2
+  GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dorg.gradle.workers.max=2'
 
 jobs:
   test:
-    runs-on: macbook
+    runs-on: self-hosted
 
     steps:
       -name: Check out repository
@@ -22,4 +22,4 @@ jobs:
       - name: Android test using self hosted runner
         run:
           chmod +x ./gradlew
-        ./gradlew test
+          ./gradlew test
