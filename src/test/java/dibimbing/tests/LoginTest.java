@@ -23,4 +23,26 @@ public class LoginTest extends BaseTest {
 
         Assert.assertTrue(productPage.isProductTitleDisplayed(), "Product title is not displayed");
     }
-}
+
+    @Test
+    public void failedloginWithBlankInputUsername() {
+        GlobalPage globalPage = new GlobalPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+
+        globalPage.clickViewMenu();
+        globalPage.clickLoginMenuItem();
+
+        loginPage.inputUsername("");
+        loginPage.inputPassword("");
+        loginPage.clickLoginButton();
+
+        String actualError = loginPage.getErrorUsernameText();
+        System.out.println("Error message: " + actualError);
+
+            Assert.assertEquals(
+                    actualError,
+                    "Username is required"
+            );
+        }
+    }
+

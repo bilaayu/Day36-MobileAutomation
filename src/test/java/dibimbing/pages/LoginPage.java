@@ -15,6 +15,9 @@ public class LoginPage extends BasePage {
     @AndroidFindBy(accessibility = "Tap to login with given credentials")
     private WebElement loginButton;
 
+    @AndroidFindBy(id = "com.saucelabs.mydemoapp.android:id/nameErrorTV")
+    private WebElement errorUsernameText;
+
     public LoginPage(AppiumDriver driver) {
         super(driver);
     }
@@ -29,5 +32,9 @@ public class LoginPage extends BasePage {
 
     public void clickLoginButton() {
         loginButton.click();
+    }
+
+    public String getErrorUsernameText() {
+        return errorUsernameText.getText();
     }
 }
