@@ -1,0 +1,25 @@
+name: Android Test using self hosted runner
+
+on:
+  push:
+    branches:
+      -main
+
+env:
+  JAVA_VERSION: '17'
+  GRADLE_OPTS: -Dorg.gradle.daemon=false - Dorg.gradle.workers.max=2
+
+jobs:
+  test:
+    runs-on: macbook
+
+    steps:
+      -name: Check out repository
+       uses: actions/checkout@v4
+       with:
+        fetch-depth: 0
+
+      - name: Android test using self hosted runner
+        run:
+          chmod +x ./gradlew
+        ./gradlew test
